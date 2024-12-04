@@ -10,7 +10,7 @@ $("#activate").click(function(){
     // Using the core $.ajax() method
     $.ajax({
         // The URL for the request
-        url: "https://xkcd.com/614/info.0.json",
+        url: "https://api.chucknorris.io/jokes/random",
         data: { 
           },
         // Get request
@@ -20,7 +20,7 @@ $("#activate").click(function(){
         // When api is successful print full object in console and put answer in output div
         success: function(data) {
             console.log(data);
-            $("#output").append("<br>" + data.title + "<br>" + data.img + "<br>" + data.alt);
+            $("#output").append("<br>" + data.value + "<br>" + '<img src='+ data.icon_url + '></img>');
         },
         // If api fails print error in console
         error: function (jqXHR, textStatus, errorThrown) { 
